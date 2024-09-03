@@ -14,6 +14,9 @@ export default class ControlFlowComponent {
 
   public grade = signal<Grade>('A');
 
+  public frameworks = signal<string[]>(['Angular', 'React', 'Vue', 'Qwik', 'Svelte']);
+  public frameworks2 = signal<string[]>([]);
+
   public toggleContent() {
     this.showContent.update( value => !value);
   }
