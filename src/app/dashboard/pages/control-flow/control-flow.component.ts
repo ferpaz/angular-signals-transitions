@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
 
+type Grade = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
+
 @Component({
   standalone: true,
   imports: [],
@@ -10,7 +12,14 @@ export default class ControlFlowComponent {
 
   public showContent = signal(false);
 
+  public grade = signal<Grade>('A');
+
   public toggleContent() {
     this.showContent.update( value => !value);
   }
+
+  public changeGrade(newGrade: string) {
+    this.grade.update( value => newGrade as Grade);
+  }
+
 }

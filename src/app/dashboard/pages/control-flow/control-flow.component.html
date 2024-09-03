@@ -12,4 +12,32 @@
       <p class="mt-5">******************</p>
     }
   </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">switch: {{ grade() }}</h2>
+
+    @switch (grade()) {
+      @case ('A') {
+        <p class="mt-5">Excellent</p>
+      }
+      @case ('B') {
+        <p class="mt-5">Good</p>
+      }
+      @case ('C') {
+        <p class="mt-5">Fair</p>
+      }
+      @case ('D') {
+        <p class="mt-5">Poor</p>
+      }
+      @case ('E') {
+        <p class="mt-5">Very Poor</p>
+      }
+      @case ('F') {
+        <p class="mt-5">Fail</p>
+      }
+      @default {
+        <p class="mt-5">Invalid Grade</p>
+      }
+    }
+  </div>
 </section>
