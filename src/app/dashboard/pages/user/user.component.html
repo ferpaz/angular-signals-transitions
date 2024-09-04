@@ -1,1 +1,21 @@
-<p>user works!</p>
+<app-title [title]="userFullName()" />
+
+@if (user() === undefined) {
+  <p>Usuario no encontrado</p>
+} @else {
+
+  <section>
+    <img [srcset]="user()!.avatar" [alt]="user()!.first_name" />
+
+    <div class="my-4">
+      <h3>{{ user()!.first_name }} {{ user()!.last_name }} </h3>
+      <h4>{{ user()!.email }}</h4>
+    </div>
+
+    <hr class="my-4" />
+
+    <div>
+      <button class="bg-blue-500 hover:bg-blue-800 text-white p-3 cursor-pointer rounded shadow" [routerLink]="['/dashboard/user-list']">Regresar</button>
+    </div>
+  </section>
+}

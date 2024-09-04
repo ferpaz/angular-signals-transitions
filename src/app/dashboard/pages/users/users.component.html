@@ -1,1 +1,18 @@
-<p>users works!</p>
+<app-title title="Lista de Usuarios" />
+
+@if(loading()) {
+  <p>Loading ...</p>
+} @else {
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    @for(user of users(); track $index) {
+      <a [routerLink]="['/dashboard/user', user.id]">
+        <div class="bg-white rounded shadow p-3 hover:bg-blue-500 text-center">
+          <img [srcset]="user.avatar" class="rounded w-full mb-2" [alt]="user.first_name" />
+          {{ user.first_name }} {{ user.last_name }}
+        </div>
+      </a>
+    } @empty {
+      <p>No hay usuarios que mostrar</p>
+    }
+  </section>
+}
