@@ -13,6 +13,7 @@ export const routes: Routes = [
       { path: 'user-list', title: 'User List', loadComponent: () => import('./dashboard/pages/users/users.component') },
       { path: 'view-transition-1', title: 'View Transition 1', loadComponent: () => import('./dashboard/pages/view-transtition/view-transtition1.component') },
       { path: 'view-transition-2', title: 'View Transition 2', loadComponent: () => import('./dashboard/pages/view-transtition/view-transtition2.component') },
+      { path: 'inputs-outputs', title: 'Inputs Outputs', loadComponent: () => import('./dashboard/pages/input-output/input-output.component') },
       { path: '', redirectTo: 'control-flow', pathMatch: 'full' },
     ],
   },
