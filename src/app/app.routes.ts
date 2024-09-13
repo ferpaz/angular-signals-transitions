@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
+import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [MsalGuard],
     loadComponent: () => import('./dashboard/dashboard.component'),
     children: [
       { path: 'change-detection', title: 'Change Detection', loadComponent: () => import('./dashboard/pages/change-detection/change-detection.component') },
