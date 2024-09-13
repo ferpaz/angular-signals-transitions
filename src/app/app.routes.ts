@@ -7,6 +7,13 @@ export const routes: Routes = [
      loadComponent: () => import('./auth/failed/failed.component')
   },
   {
+    path: 'auth',
+    children: [
+      // { path: 'login', loadComponent: () => import('./auth/login.module') },
+      { path: 'profile', title: 'User Profile', canActivate: [MsalGuard], loadComponent: () => import('./auth/profile/profile.component') },
+    ],
+  },
+  {
     path: 'dashboard',
     canActivate: [MsalGuard],
     loadComponent: () => import('./dashboard/dashboard.component'),

@@ -1,0 +1,42 @@
+<app-toolbar-component [isAuthenticated]="loginDisplay" [userName]="accountInfo?.displayName" />
+
+<div class="flex bg-slate-100 text-black overflow-y-scroll w-screen h-screen antialiased selection:bg-blue-600 selection:text-white">
+  <div class="flex relative w-screen">
+
+    <app-side-menu routePath="auth" />
+
+    <div class="text-black px-2 mt-2 max-w-xl w-full m-auto">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Información de la Cuenta</h2>
+      <hr class="mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Nombre Completo:</label>
+        <p class="text-gray-900">{{ accountInfo?.displayName }}</p>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Puesto:</label>
+        <p class="text-gray-900">{{ accountInfo?.jobTitle }}</p>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+        <p class="text-gray-900">{{ accountInfo?.mail }}</p>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Teléfono:</label>
+        <p class="text-gray-900">{{ accountInfo?.businessPhones }}</p>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Móvil:</label>
+        <p class="text-gray-900">{{ accountInfo?.mobilePhone }}</p>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Dirección:</label>
+        <p class="text-gray-900">{{ accountInfo?.officeLocation }}</p>
+      </div>
+      <hr class="mb-4">
+      <div class="mt-6 text-center">
+        <a routerLink="/dashboard" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Regresar al Dashboard</a>
+      </div>
+    </div>
+
+  </div>
+</div>
