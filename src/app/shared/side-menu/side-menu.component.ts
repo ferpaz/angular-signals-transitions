@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, input, OnInit } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
 
 import { routes } from '../../app.routes';
 
@@ -9,14 +9,18 @@ import { routes } from '../../app.routes';
   imports: [RouterModule],
   templateUrl: './side-menu.component.html',
 })
-export class SideMenuComponent {
+export class SideMenuComponent implements OnInit {
 
-  public menuItems = routes
-  .map( route => route.children ?? [] )
-  .flat()
-  .filter( route => route && route.path )
-  .filter( route => !route.path?.includes(':') );
+  routePath = input.required<string>();
 
-  constructor() {
+  public menuItems: Route[] = [];
+
+  ngOnInit(): void {
+    this.menuItems = routes
+      .filter( route => route.path === this.routePath() )
+      .map( route => route.children ?? [] )
+      .flat()
+      .filter( route => route && route.path )
+      .filter( route => !route.path?.includes(':') );
   }
 }

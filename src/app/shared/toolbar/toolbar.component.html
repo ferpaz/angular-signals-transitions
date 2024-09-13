@@ -1,0 +1,43 @@
+<div class="bg-gray-800 text-white w-full flex justify-between items-center">
+  <div id="logo" class="m-4">
+    <a routerLink="/dashboard">
+      <h1 class="text-lg md:text-2xl font-bold text-white">Dash<span class="text-blue-500">*</span></h1>
+    </a>
+    <p class="text-slate-500 text-sm">Manage your actions and activities</p>
+  </div>
+
+  @if(isAuthenticated()) {
+  <div class="px-6 py-6">
+    <div class="inline-flex space-x-1 items-center">
+      <div>
+        <div class="inline-flex space-x-2 items-center">
+          <p class="text-slate-500 text-nowrap">Welcome back,</p>
+          <span>
+            @if(loadingAvatarUrl()) {
+              <img class="rounded w-8 h-8" [src]="avatarUrl()" [alt]="userName()">
+            } @else {
+              <img class="rounded w-8 h-8" src="assets/userAvatar.png" [alt]="userName()">
+            }
+          </span>
+          <span class="text-sm md:text-base font-bold text-nowrap">
+            {{ userName() }}
+          </span>
+          <button id="menu-button" type="button" class="inline-flex justify-center text-sm font-medium text-white" (click)="setAuthMenuVisible()">
+            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          @if (authMenuVisible()){
+          <div class="absolute right-5 z-10 mt-28 w-28 px-1 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" tabindex="-1">
+            <div class="py-1" role="none">
+              <button (click)="navigateToProfile()" class="block px-4 py-2 w-full text-left text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Profile</button>
+              <button (click)="logout()" class="block px-4 py-2 w-full text-left text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">Logout</button>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>
