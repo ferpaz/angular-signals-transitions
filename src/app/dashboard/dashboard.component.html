@@ -1,7 +1,10 @@
+<!-- Toolbar -->
+<app-toolbar-component [isAuthenticated]="loginDisplay" [userName]="accountInfo()?.name" />
+
 <div class="flex bg-slate-100 text-black overflow-y-scroll w-screen h-screen antialiased selection:bg-blue-600 selection:text-white">
   <div class="flex relative w-screen">
 
-    <app-side-menu />
+    <app-side-menu routePath="dashboard" />
 
     <div class="text-black px-2 mt-2 max-w-xl w-full m-auto">
       <router-outlet />
