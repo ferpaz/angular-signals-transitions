@@ -35,7 +35,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
-  protectedResourceMap.set(environment.apiBackendConfig.uri, environment.apiBackendConfig.scopes);
+  protectedResourceMap.set(environment.MSGraph.uri, environment.MSGraph.scopes);
 
   return {
     interactionType: InteractionType.Redirect,
@@ -47,7 +47,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return {
     interactionType: InteractionType.Redirect,
     authRequest: {
-      scopes: [...environment.apiBackendConfig.scopes]
+      scopes: [...environment.MSGraph.scopes]
     },
     loginFailedRoute: '/login-failed'
   };

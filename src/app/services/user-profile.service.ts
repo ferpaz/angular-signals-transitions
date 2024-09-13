@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MsalService } from '@azure/msal-angular';
 import { from, Observable } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { environment } from '@env/environment';
-import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserProfileService {
-  private graphEndpoint = environment.apiBackendConfig.uri;
+  private graphEndpoint = environment.MSGraph.uri;
 
   constructor(private http: HttpClient, private msalService: MsalService) { }
 

@@ -4,22 +4,22 @@ require('dotenv').config();
 
 const targetPath = './src/environments';
 
-const scopes = process.env.APICONFIG_SCOPES.split(',').map(scope => `'${scope}'`).join(', ');
+const scopes = process.env.MS_GRAPH_SCOPES.split(',').map(scope => `'${scope}'`).join(', ');
 
 const envConfigFile = `
 export const environment = {
   production: false,
   entraAPPConfig: {
-    tenantId: '${process.env.AZURE_TENANTID}',
-    authority: '${process.env.AZURE_AUTHORITY}',
-    clientId: '${process.env.AZURE_CLIENTID}',
-    clientSecret: '${process.env.AZURE_CLIENTSECRET}',
-    redirectUri: '${process.env.AZURE_REDIRECTURI}',
-    postLogoutRedirectUri: '${process.env.AZURE_POSTLOGOUTREDIRECTURI}',
+    tenantId: '${process.env.ENTRAAPPCONFIG_TENANTID}',
+    authority: '${process.env.ENTRAAPPCONFIG_AUTHORITY}',
+    clientId: '${process.env.ENTRAAPPCONFIG_CLIENTID}',
+    clientSecret: '${process.env.ENTRAAPPCONFIG_CLIENTSECRET}',
+    redirectUri: '${process.env.ENTRAAPPCONFIG_REDIRECTURI}',
+    postLogoutRedirectUri: '${process.env.ENTRAAPPCONFIG_POSTLOGOUTREDIRECTURI}',
   },
-  apiBackendConfig: {
+  MSGraph: {
       scopes: [${scopes}],
-      uri: '${process.env.APICONFIG_URI}',
+      uri: '${process.env.MS_GRAPH_URI}',
   },
 };
 `;
