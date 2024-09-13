@@ -3,6 +3,10 @@ import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
   {
+     path: 'failed',
+     loadComponent: () => import('./auth/failed/failed.component')
+  },
+  {
     path: 'dashboard',
     canActivate: [MsalGuard],
     loadComponent: () => import('./dashboard/dashboard.component'),
